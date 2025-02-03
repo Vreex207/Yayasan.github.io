@@ -11,7 +11,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="/images/WhatsApp_Image_2024-09-10_at_8.26.24_AM-removebg-preview.png" />
+      href="/images/logo.png" />
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -26,6 +26,8 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet" />
 
     <link href="css/templatemo-leadership-event.css" rel="stylesheet" />
+
+    <link href="css/donasi-pop-up.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -69,12 +71,40 @@
               <a class="nav-link click-scroll" href="#section_5">Contact</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link click-scroll" href="#" id="donasiMenu">
+                Donasi
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>
     </nav>
 
     <main>
+
+      <!-- Overlay -->
+      <div id="overlay"></div>
+
+      <!-- Popup Donasi -->
+      <div id="donasiPopup">
+        <h2 id="headerPopup">Kontak Kami Untuk Memberi Donasi</h2>
+        <p id="textPopup">Setiap donasi Anda sangat berarti bagi mereka yang membutuhkan.</p>
+      <!-- Informasi Kontak WhatsApp -->
+      <div class="contact">
+        <p id="textPopup">Silahkan hubungi nomor dibawah ini:</p>
+        <p id="textPopup">Pengurus</p>
+        <a href="#" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp"> 
+          0858-5112-0060
+        </a>
+      </div>
+
+        <br>
+        <button class="close" id="closePopup">Tutup</button>
+      </div>
+
       <section class="hero" id="section_1">
         <div class="container">
           <div class="row">
@@ -86,8 +116,6 @@
 
                 <div class="d-flex justify-content-center align-items-center">
                   <span class="location-text">By SMK Krian 1</span>
-
-                  <!-- <span class="location-text">And Other</span> -->
                 </div>
 
                 <a
@@ -298,7 +326,7 @@
                     aria-selected="true">
                     <h3>
                       <span>Activity</span>
-                      <small>Desember 2024</small>
+                      <small>Januari 2024</small>
                     </h3>
                   </button>
 
@@ -313,7 +341,7 @@
                     aria-selected="false">
                     <h3>
                       <span>Activity</span>
-                      <small>Januari 2025</small>
+                      <small>Februari 2025</small>
                     </h3>
                   </button>
 
@@ -328,7 +356,7 @@
                     aria-selected="false">
                     <h3>
                       <span>Activity</span>
-                      <small>Februari 2025</small>
+                      <small>Maret 2025</small>
                     </h3>
                   </button>
                 </div>
@@ -559,7 +587,7 @@
                 <h2>Contact Us</h2>
 
                 <div class="row">
-                  <div class="col-lg-6 col-md-6 col-12">
+                  <div class="col-lg-4 col-md-4 col-12">
                     <input
                       type="text"
                       name="nama"
@@ -569,7 +597,17 @@
                       required="" />
                   </div>
 
-                  <div class="col-lg-6 col-md-6 col-12">
+                  <div class="col-lg-4 col-md-4 col-12">
+                    <input
+                      type="text" maxlength="14" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                      name="telepon"
+                      id="telepon"
+                      class="form-control"
+                      placeholder="No Telepon"
+                      required="" />
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-12">
                     <input
                       type="email"
                       name="email"
@@ -579,10 +617,6 @@
                       placeholder="Email"
                       required="" />
                   </div>
-
-                  <!-- <div class="col-lg-4 col-md-4 col-12">                                    
-                                        <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
-                                    </div> -->
 
                   <div class="col-12">
                     <textarea
@@ -625,20 +659,16 @@
               </a>
 
               <ul class="social-icon ms-auto">
-                <li><a href="#" class="social-icon-link bi-facebook"></a></li>
-
-                <li><a href="#" class="social-icon-link bi-instagram"></a></li>
-
                 <li>
-                  <a
-                    href="https://api.whatsapp.com/send/?phone=6282132387374&text&type=phone_number&app_absent=0"
-                    class="social-icon-link bi-whatsapp"></a>
+                  <a href="https://web.facebook.com/profile.php?id=61567015615000" class="social-icon-link bi-facebook"></a>
                 </li>
 
                 <li>
-                  <a
-                    href="https://www.tiktok.com/@yayasanainulyaqin0602?_t=8qw6Z7mpk08&_r=1"
-                    class="social-icon-link bi-tiktok"></a>
+                  <a href="https://www.instagram.com/yayasan.ainulyaqin/?hl=en" class="social-icon-link bi-instagram"></a>
+                </li>
+
+                <li>
+                  <a href="https://www.tiktok.com/@yayasanainulyaqin0602?_t=8qw6Z7mpk08&_r=1" class="social-icon-link bi-tiktok"></a>
                 </li>
               </ul>
             </div>
@@ -672,34 +702,7 @@
     <script src="js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>
     <script src="js/custom.js"></script>
-    <script>
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbwAT5XTe6W1Lp7nWvc0J_p9HyhW_nelIADwbSskBLy6QJPzGUY7vSYZcSAToWmoWONG/exec";
-      const form = document.forms["submit-to-google-sheet"];
-      const btnKirim = document.getElementById("btnKirim");
-      const btnLoading = document.getElementById("btnLoading");
-      const closeButton = document.getElementById("closeButton");
-      const myAlert = document.getElementById("alert");
-
-      closeButton.addEventListener("click", () => {
-        myAlert.classList.toggle("d-none");
-      });
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        // ketika tombol submit diklik
-        btnKirim.classList.toggle("d-none");
-        btnLoading.classList.toggle("d-none");
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            btnLoading.classList.toggle("d-none");
-            btnKirim.classList.toggle("d-none");
-            myAlert.classList.toggle("d-none");
-            form.reset();
-            console.log("Success!", response);
-          })
-          .catch((error) => console.error("Error!", error.message));
-      });
-    </script>
+    <script src="js/contact.js"></script>
+    <script src="js/nav-donasi.js"></script>
   </body>
 </html>
